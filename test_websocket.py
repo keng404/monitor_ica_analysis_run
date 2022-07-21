@@ -87,18 +87,29 @@ def list_project_analyses(api_key,project_id,max_retries=20):
     return analyses_metadata
 ################
 def get_project_analysis_id(api_key,project_id,analysis_name):
-	analysis_id  = None
-	analyses_list = list_project_analyses(api_key,project_id)
-	if analysis_name is not None:
-		for aidx,project_analysis in enumerate(analyses_list):
-			if project_analysis['userReference'] == analysis_name:
-				analysis_id = project_analysis['id']
-	else:
-		idx_of_interest = 0
-		default_analysis_name = analyses_list[idx_of_interest]['userReference']
-		print(f"No user reference provided, will poll the logs for the analysis {default_analysis_name}")
-		analysis_id = analyses_list[idx_of_interest]['id']
-	return analysis_id
+    desired_analyses_status = ["REQUESTED","INPROGRESS","SUCCEEDED","FAILED"]
+    analysis_id  = None
+    analyses_list = list_project_analyses(api_key,project_id)
+    if analysis_name is not None:
+        for aidx,project_analysis in enumerate(analyses_list):
+            name_check  = project_analysis['userReference'] == analysis_name 
+            status_check = project_analysis['status'] in desired_analyses_status
+            if project_analysis['userReference'] == analysis_name and project_analysis['status'] in desired_analyses_status:
+                analysis_id = project_analysis['id']
+                return analysis_id
+    else:
+        idx_of_interest = 0
+        status_of_interest = analyses_list[idx_of_interest]['status'] 
+        current_analysis_id = analyses_list[idx_of_interest]['id'] 
+        while status_of_interest not in desired_analyses_status:
+            idx_of_interest = idx_of_interest + 1
+            status_of_interest = analyses_list[idx_of_interest]['status'] 
+            current_analysis_id = analyses_list[idx_of_interest]['id'] 
+            print(f"analysis_id:{current_analysis_id} status:{status_of_interest}")
+        default_analysis_name = analyses_list[idx_of_interest]['userReference']
+        print(f"No user reference provided, will poll the logs for the analysis {default_analysis_name}")
+        analysis_id = analyses_list[idx_of_interest]['id']
+    return analysis_id
 #####################################################
 def get_analysis_steps(api_key,project_id,analysis_id):
 	 # List all analyses in a project
@@ -233,7 +244,7 @@ def main():
 	if analysis_id is None:
 		analysis_id = get_project_analysis_id(my_api_key,project_id,analysis_name)
 	if analysis_id is None:
-		raise ValueError("Need to provide project name or analysis id")
+		raise ValueError("Need to provide project name or analysis id or you may need to check if the analysis id you are looking at has been aborted or did not run")
 	# get logs for a given analysis
 	get_logs(my_api_key,project_id,analysis_id)
 

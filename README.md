@@ -15,5 +15,5 @@ python3 test_websocket.py --api-key-file {FILE} [--project_name {STR}|--project-
 If both ```--analysis_name``` and ```--analysis_id``` are undefined, the script will try to grab/monitor logs from the most recent analysis run in your ICA project
 
 # limitations
-- Does not distinguish between analysis runs that have failed (Failed,AwaitingInput) or are running (i.e. Requested, InProgress,,Succeeded)
-- Does not distinguish between analysis runs that have the same user_reference
+- Distinguishes between analysis runs that have the same user_reference
+  - picks the most recent analysis with the user_reference name
