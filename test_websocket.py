@@ -16,8 +16,11 @@ import json
 import time
 from time import sleep
 import random
-############
-ICA_BASE_URL = "https://ica.illumina.com/ica"
+###############################################
+import logging
+logger = logging.getLogger('websockets')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
 ##############
 def get_project_id(api_key, project_name):
     projects = []
@@ -54,7 +57,7 @@ def list_project_analyses(api_key,project_id,max_retries=20):
     pageSize = 1000
     page_number = 0
     number_of_rows_to_skip = 0
-    api_base_url = ICA_BASE_URL + "/rest"
+    api_base_url = os.environ['ICA_BASE_URL'] + "/ica/rest"
     endpoint = f"/api/projects/{project_id}/analyses?pageOffset={pageOffset}&pageSize={pageSize}"
     analyses_metadata = []
     full_url = api_base_url + endpoint  ############ create header
@@ -112,8 +115,8 @@ def get_project_analysis_id(api_key,project_id,analysis_name):
     return analysis_id
 #####################################################
 def get_analysis_steps(api_key,project_id,analysis_id):
-	 # List all analyses in a project
-    api_base_url = ICA_BASE_URL + "/rest"
+     # List all analyses in a project
+    api_base_url = os.environ['ICA_BASE_URL'] + "/ica/rest"
     endpoint = f"/api/projects/{project_id}/analyses/{analysis_id}/steps"
     analysis_step_metadata = []
     full_url = api_base_url + endpoint  ############ create header
@@ -122,21 +125,21 @@ def get_analysis_steps(api_key,project_id,analysis_id):
     headers['Content-Type'] = 'application/vnd.illumina.v3+json'
     headers['X-API-Key'] = api_key
     try:
-    	projectAnalysisSteps = requests.get(full_url, headers=headers)
-    	for step in projectAnalysisSteps.json()['items']:
-    		analysis_step_metadata.append(step)
+        projectAnalysisSteps = requests.get(full_url, headers=headers)
+        for step in projectAnalysisSteps.json()['items']:
+            analysis_step_metadata.append(step)
     except:
         raise ValueError(f"Could not get analyses steps for project: {project_id}")
     return analysis_step_metadata
 #################
 def file_or_stream(analysis_step_metadata):
-	log_status = None
-	for step in analysis_step_metadata:
-		if 'stdOutData' in step['logs'].keys() or 'stdErrData' in step['logs'].keys()  :
-			log_status = 'file'
-		elif 'stdOutStream' in step['logs'].keys() or 'stdErrStream' in step['logs'].keys()  :
-			log_status = 'stream'
-	return log_status
+    log_status = None
+    for step in analysis_step_metadata:
+        if 'stdOutData' in step['logs'].keys() or 'stdErrData' in step['logs'].keys()  :
+            log_status = 'file'
+        elif 'stdOutStream' in step['logs'].keys() or 'stdErrStream' in step['logs'].keys()  :
+            log_status = 'stream'
+    return log_status
 ###################
 def download_data_from_url(download_url,output_name=None):
     command_base = ["wget"]
@@ -150,8 +153,8 @@ def download_data_from_url(download_url,output_name=None):
     return print(f"Downloading from {download_url}")
 
 def download_file(api_key,project_id,data_id,output_path):
-	# List all analyses in a project
-    api_base_url = ICA_BASE_URL + "/rest"
+    # List all analyses in a project
+    api_base_url = os.environ['ICA_BASE_URL']+ "/ica/rest"
     endpoint = f"/api/projects/{project_id}/data/{data_id}:createDownloadUrl"
     download_url = None
     full_url = api_base_url + endpoint  ############ create header
@@ -160,95 +163,108 @@ def download_file(api_key,project_id,data_id,output_path):
     headers['Content-Type'] = 'application/vnd.illumina.v3+json'
     headers['X-API-Key'] = api_key
     try:
-    	downloadFile = requests.post(full_url, headers=headers)
-    	download_url = downloadFile.json()['url']
-    	download_url = '"' + download_url + '"'
-    	download_data_from_url(download_url,output_path)
+        downloadFile = requests.post(full_url, headers=headers)
+        download_url = downloadFile.json()['url']
+        download_url = '"' + download_url + '"'
+        download_data_from_url(download_url,output_path)
     except:
-    	raise ValueError(f"Could not get analyses streams for project: {project_id}")
+        raise ValueError(f"Could not get analyses streams for project: {project_id}")
 
     return print(f"Completed download from {download_url}")
 ##################
  
-async def stream_log(uri):
-    async with websockets.connect(uri) as ws:
-        await ws.send("hello")
+async def stream_log(uri,extra_headers):
+    async with websockets.connect(uri,extra_headers=extra_headers) as ws:
         while True:
-        	try:
-        		text = await ws.recv()
-        		print(f"< {text.rstrip()}")
-        	except (exceptions.ConnectionClosedError,exceptions.ConnectionClosed):
-        		print(f"Connection closed")
-        		return
-
-def get_logs(api_key,project_id,analysis_id):
-	analysis_step_metadata = get_analysis_steps(api_key,project_id,analysis_id)
-	if os.path.isdir(f"analysis_id_{analysis_id}") is False:
-		os.mkdir(f"analysis_id_{analysis_id}")
-	while len(analysis_step_metadata) < 1:
-		analysis_step_metadata = get_analysis_steps(api_key,project_id,analysis_id)
-		print(analysis_step_metadata)
-	for step in analysis_step_metadata:
-		log_status = file_or_stream([step])
-		step_name = step['id']
-		if log_status == "file":
-			stdout_path = step['logs']['stdOutData']['details']['path']
-			stdout_id = step['logs']['stdOutData']['id']
-			print(f"For {step_name} Downloading the log for {stdout_path}")
-			download_file(api_key,project_id,stdout_id,f"analysis_id_{analysis_id}/" +step_name +".stdout.log")
-			stderr_path = step['logs']['stdErrData']['details']['path']
-			stderr_id = step['logs']['stdErrData']['id']
-			print(f"For {step_name} Downloading the log for {stderr_path}")
-			download_file(api_key,project_id,stderr_id,f"analysis_id_{analysis_id}/" +step_name +".stderr.log")
-		elif log_status == "stream":
-		### assume stream
-			stdout_websocket = step['logs']['stdOutStream']
-			print(f"For step: {step_name}, streaming {stdout_websocket}")
-			asyncio.get_event_loop().run_until_complete(stream_log(stdout_websocket))
-			stderr_websocket = step['logs']['stdErrStream']
-			print(f"For step: {step_name}, streaming {stderr_websocket}")
-			asyncio.get_event_loop().run_until_complete(stream_log(stderr_websocket))
-		else:
-			print(f"Nothing to do for step {step_name}, analysis {analysis_id} is not running that step")
-	return print(f"Finished getting logs for {analysis_id}")
+            try:
+                text = await ws.recv()
+                print(f"< {text.rstrip()}")
+            except (exceptions.ConnectionClosedError,exceptions.ConnectionClosed):
+                print(f"Connection closed")
+                return
+#################################################
+def generate_step_file(step_object,output_path):
+    f = open(output_path, "w")
+    for s1 in json.dumps(step_object,indent=4,sort_keys=True): 
+            f.write(s1)
+    f.close()
+    return print(f"Created {output_path}")
+###############################################    
+def get_logs(api_key,project_id,analysis_id,extra_headers):
+    analysis_step_metadata = get_analysis_steps(api_key,project_id,analysis_id)
+    if os.path.isdir(f"analysis_id_{analysis_id}") is False:
+        os.mkdir(f"analysis_id_{analysis_id}")
+    while len(analysis_step_metadata) < 1:
+        analysis_step_metadata = get_analysis_steps(api_key,project_id,analysis_id)
+    generate_step_file(analysis_step_metadata,f"analysis_id_{analysis_id}/step_metadata.txt")
+    for step in analysis_step_metadata:
+        log_status = file_or_stream([step])
+        step_name = step['id']
+        if log_status == "file":
+            stdout_path = step['logs']['stdOutData']['details']['path']
+            stdout_id = step['logs']['stdOutData']['id']
+            print(f"For {step_name} Downloading the log for {stdout_path}")
+            download_file(api_key,project_id,stdout_id,f"analysis_id_{analysis_id}/" +step_name +".stdout.log")
+            stderr_path = step['logs']['stdErrData']['details']['path']
+            stderr_id = step['logs']['stdErrData']['id']
+            print(f"For {step_name} Downloading the log for {stderr_path}")
+            download_file(api_key,project_id,stderr_id,f"analysis_id_{analysis_id}/" +step_name +".stderr.log")
+        elif log_status == "stream":
+        ### assume stream
+            stdout_websocket = step['logs']['stdOutStream']
+            print(f"For step: {step_name}, streaming {stdout_websocket}")
+            asyncio.get_event_loop().run_until_complete(stream_log(stdout_websocket,extra_headers))
+            stderr_websocket = step['logs']['stdErrStream']
+            print(f"For step: {step_name}, streaming {stderr_websocket}")
+            asyncio.get_event_loop().run_until_complete(stream_log(stderr_websocket,extra_headers))
+        else:
+            print(f"Nothing to do for step {step_name}, analysis {analysis_id} is not running that step")
+    return print(f"Finished getting logs for {analysis_id}")
 
 ###################################################
 def main():
-	parser = argparse.ArgumentParser()
-	parser.add_argument('--project_id',default=None, type=str, help="ICA project id [OPTIONAL]")
-	parser.add_argument('--project_name',default=None, type=str, help="ICA project name")
-	parser.add_argument('--analysis_id', default=None, type=str, help="ICA analysis id")
-	parser.add_argument('--analysis_name', default=None, type=str, help="ICA analysis name --- analysis user reference")
-	parser.add_argument('--api_key_file', default=None, type=str, help="file that contains API-Key")
-	args, extras = parser.parse_known_args()
-	#############
-	project_id = args.project_id
-	project_name = args.project_name
-	analysis_id = args.analysis_id
-	analysis_name = args.analysis_name
-	###### read in api key file
-	my_api_key = None
-	if args.api_key_file is not None:
-		if os.path.isfile(args.api_key_file) is True:
-			with open(args.api_key_file, 'r') as f:
-				my_api_key = str(f.read().strip("\n"))
-	if my_api_key is None:
-		raise ValueError("Need API key")
-	# import websocket_client
-	if project_id is None and project_name is not None:
-		project_id = get_project_id(my_api_key,project_name)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--project_id',default=None, type=str, help="ICA project id [OPTIONAL]")
+    parser.add_argument('--project_name',default=None, type=str, help="ICA project name")
+    parser.add_argument('--analysis_id', default=None, type=str, help="ICA analysis id")
+    parser.add_argument('--analysis_name', default=None, type=str, help="ICA analysis name --- analysis user reference")
+    parser.add_argument('--api_key_file', default=None, type=str, help="file that contains API-Key")
+    parser.add_argument('--server_url', default='https://ica.illumina.com', type=str, help="ICA base URL")
+    args, extras = parser.parse_known_args()
+    #############
+    project_id = args.project_id
+    project_name = args.project_name
+    analysis_id = args.analysis_id
+    analysis_name = args.analysis_name
+    os.environ['ICA_BASE_URL'] = args.server_url
+    ###### read in api key file
+    my_api_key = None
+    if args.api_key_file is not None:
+        if os.path.isfile(args.api_key_file) is True:
+            with open(args.api_key_file, 'r') as f:
+                my_api_key = str(f.read().strip("\n"))
+    if my_api_key is None:
+        raise ValueError("Need API key")
+    # import websocket_client
+    if project_id is None and project_name is not None:
+        project_id = get_project_id(my_api_key,project_name)
 
-	if project_id is None:
-		raise ValueError("Need to provide project name or project id")
+    if project_id is None:
+        raise ValueError("Need to provide project name or project id")
 
-	if analysis_id is None:
-		analysis_id = get_project_analysis_id(my_api_key,project_id,analysis_name)
-	if analysis_id is None:
-		raise ValueError("Need to provide project name or analysis id or you may need to check if the analysis id you are looking at has been aborted or did not run")
-	# get logs for a given analysis
-	get_logs(my_api_key,project_id,analysis_id)
+    if analysis_id is None:
+        analysis_id = get_project_analysis_id(my_api_key,project_id,analysis_name)
+    if analysis_id is None:
+        raise ValueError("Need to provide project name or analysis id or you may need to check if the analysis id you are looking at has been aborted or did not run")
+    # get logs for a given analysis
+    ############
+    extra_headers = {}
+    extra_headers['Origin'] = os.environ['ICA_BASE_URL']
+    extra_headers['User-Agent'] = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Mobile Safari/537.36"
+    
+    get_logs(my_api_key,project_id,analysis_id,extra_headers)
 
 
  
 if __name__ == "__main__":
-	main()
+    main()
