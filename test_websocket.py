@@ -28,7 +28,7 @@ def get_project_id(api_key, project_name):
     pageSize = 30
     page_number = 0
     number_of_rows_to_skip = 0
-    api_base_url = ICA_BASE_URL + "/rest"
+    api_base_url = os.environ['ICA_BASE_URL'] + "/ica/rest"
     endpoint = f"/api/projects?search={project_name}&includeHiddenProjects=true&pageOffset={pageOffset}&pageSize={pageSize}"
     full_url = api_base_url + endpoint  ############ create header
     headers = CaseInsensitiveDict()
@@ -126,8 +126,13 @@ def get_analysis_steps(api_key,project_id,analysis_id):
     headers['X-API-Key'] = api_key
     try:
         projectAnalysisSteps = requests.get(full_url, headers=headers)
-        for step in projectAnalysisSteps.json()['items']:
-            analysis_step_metadata.append(step)
+        test_response = projectAnalysisSteps.json()
+        if 'items' in test_response.keys():
+            for step in projectAnalysisSteps.json()['items']:
+                analysis_step_metadata.append(step)
+        else:
+            print(pprint(test_response,indent=4))
+            raise ValueError(f"Could not get analyses steps for project: {project_id}")
     except:
         raise ValueError(f"Could not get analyses steps for project: {project_id}")
     return analysis_step_metadata
@@ -144,8 +149,9 @@ def file_or_stream(analysis_step_metadata):
 def download_data_from_url(download_url,output_name=None):
     command_base = ["wget"]
     if output_name is not None:
+        output_name = '"' + output_name + '"' 
         command_base.append("-O")
-        command_base.append(output_name)
+        command_base.append(f"{output_name}")
     command_base.append(f"{download_url}")
     command_str = " ".join(command_base)
     print(f"Running: {command_str}")
