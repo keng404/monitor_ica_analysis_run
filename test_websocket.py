@@ -219,10 +219,10 @@ def get_logs(api_key,project_id,analysis_id,extra_headers):
         ### assume stream
             stdout_websocket = step['logs']['stdOutStream']
             print(f"For step: {step_name}, streaming {stdout_websocket}")
-            asyncio.get_event_loop().run_until_complete(stream_log(stdout_websocket,extra_headers))
+            ## asyncio.get_event_loop().run_until_complete(stream_log(stdout_websocket,extra_headers))
             stderr_websocket = step['logs']['stdErrStream']
             print(f"For step: {step_name}, streaming {stderr_websocket}")
-            asyncio.get_event_loop().run_until_complete(stream_log(stderr_websocket,extra_headers))
+            ## asyncio.get_event_loop().run_until_complete(stream_log(stderr_websocket,extra_headers))
         else:
             print(f"Nothing to do for step {step_name}, analysis {analysis_id} is not running that step")
     return print(f"Finished getting logs for {analysis_id}")
