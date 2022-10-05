@@ -179,7 +179,7 @@ def download_file(api_key,project_id,data_id,output_path):
     return print(f"Completed download from {download_url}")
 ##################
  
-async def stream_log(uri,extra_headers,num_checks = 20):
+async def stream_log(uri,extra_headers,num_checks = 2):
     checks = 0
     async with websockets.connect(uri,extra_headers=extra_headers) as ws:
         while True and checks <= num_checks:
