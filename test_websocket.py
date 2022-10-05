@@ -179,9 +179,11 @@ def download_file(api_key,project_id,data_id,output_path):
     return print(f"Completed download from {download_url}")
 ##################
  
-async def stream_log(uri,extra_headers):
+async def stream_log(uri,extra_headers,num_checks = 20):
+    checks = 0
     async with websockets.connect(uri,extra_headers=extra_headers) as ws:
-        while True:
+        while True and checks <= max_checks:
+            checks += 1
             try:
                 text = await ws.recv()
                 print(f"< {text.rstrip()}")
@@ -219,10 +221,10 @@ def get_logs(api_key,project_id,analysis_id,extra_headers):
         ### assume stream
             stdout_websocket = step['logs']['stdOutStream']
             print(f"For step: {step_name}, streaming {stdout_websocket}")
-            ## asyncio.get_event_loop().run_until_complete(stream_log(stdout_websocket,extra_headers))
+            asyncio.get_event_loop().run_until_complete(stream_log(stdout_websocket,extra_headers))
             stderr_websocket = step['logs']['stdErrStream']
             print(f"For step: {step_name}, streaming {stderr_websocket}")
-            ## asyncio.get_event_loop().run_until_complete(stream_log(stderr_websocket,extra_headers))
+            asyncio.get_event_loop().run_until_complete(stream_log(stderr_websocket,extra_headers))
         else:
             print(f"Nothing to do for step {step_name}, analysis {analysis_id} is not running that step")
     return print(f"Finished getting logs for {analysis_id}")
