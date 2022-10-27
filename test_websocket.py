@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # WS client example
-
+import sys
 import asyncio
 import os
 import asyncio
@@ -209,14 +209,22 @@ def get_logs(api_key,project_id,analysis_id,extra_headers):
         log_status = file_or_stream([step])
         step_name = step['id']
         if log_status == "file":
-            stdout_path = step['logs']['stdOutData']['details']['path']
-            stdout_id = step['logs']['stdOutData']['id']
-            print(f"For {step_name} Downloading the log for {stdout_path}")
-            download_file(api_key,project_id,stdout_id,f"analysis_id_{analysis_id}/" +step_name +".stdout.log")
-            stderr_path = step['logs']['stdErrData']['details']['path']
-            stderr_id = step['logs']['stdErrData']['id']
-            print(f"For {step_name} Downloading the log for {stderr_path}")
-            download_file(api_key,project_id,stderr_id,f"analysis_id_{analysis_id}/" +step_name +".stderr.log")
+            if 'stdOutData' in step['logs'].keys():
+                stdout_path = step['logs']['stdOutData']['details']['path']
+                stdout_id = step['logs']['stdOutData']['id']
+                print(f"For {step_name} Downloading the log for {stdout_path}")
+                download_file(api_key,project_id,stdout_id,f"analysis_id_{analysis_id}/" +step_name +".stdout.log")
+            else:
+                sys.stderr.write(f"Cannot find stdOutData for {step_name}")
+                pprint(step['logs'],indent = 4)
+            if 'stdErrData' in step['logs'].keys():
+                stderr_path = step['logs']['stdErrData']['details']['path']
+                stderr_id = step['logs']['stdErrData']['id']
+                print(f"For {step_name} Downloading the log for {stderr_path}")
+                download_file(api_key,project_id,stderr_id,f"analysis_id_{analysis_id}/" +step_name +".stderr.log")
+            else:
+                sys.stderr.write(f"Cannot find stdErrData for {step_name}")
+                pprint(step['logs'],indent = 4)
         elif log_status == "stream":
         ### assume stream
             stdout_websocket = step['logs']['stdOutStream']
