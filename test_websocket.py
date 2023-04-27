@@ -22,6 +22,20 @@ logger = logging.getLogger('websockets')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 ##############
+def get_analysis_info(api_key,project_id,analysis_id):
+    api_base_url = os.environ['ICA_BASE_URL'] + "/ica/rest"
+    endpoint = f"/api/projects/{project_id}/analyses/{analysis_id}"
+    full_url = api_base_url + endpoint  ############ create header
+    headers = CaseInsensitiveDict()
+    headers['Accept'] = 'application/vnd.illumina.v3+json'
+    headers['Content-Type'] = 'application/vnd.illumina.v3+json'
+    headers['X-API-Key'] = api_key
+    try:
+        pipeline_info = requests.get(full_url, headers=headers)
+    except:
+        raise ValueError(f"Could not get pipeline_info for analysis {analysis_id} in project: {project_id}")
+    return pipeline_info.json()
+##############################
 def get_project_id(api_key, project_name):
     projects = []
     pageOffset = 0
@@ -180,16 +194,16 @@ def download_file(api_key,project_id,data_id,output_path):
 ##################
  
 async def stream_log(uri,extra_headers):
-    #checks = 0
+    checks = 0
     async with websockets.connect(uri,extra_headers=extra_headers) as ws:
-    #while True and checks <= num_checks:
-        #checks += 1
-        try:
-            text = await ws.recv()
-            print(f"< {text.rstrip()}")
-        except (exceptions.ConnectionClosedError,exceptions.ConnectionClosed):
-            print(f"Connection closed")
-            return
+        while True and checks <= num_checks:
+            checks += 1
+            try:
+                text = await ws.recv()
+                print(f"< {text.rstrip()}")
+            except (exceptions.ConnectionClosedError,exceptions.ConnectionClosed):
+                print(f"Connection closed")
+                return
 #################################################
 def generate_step_file(step_object,output_path):
     f = open(output_path, "w")
@@ -277,10 +291,14 @@ def main():
     extra_headers = {}
     extra_headers['Origin'] = os.environ['ICA_BASE_URL']
     extra_headers['User-Agent'] = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Mobile Safari/537.36"
-    
-    get_logs(my_api_key,project_id,analysis_id,extra_headers)
+    ####
+    ### obtain info for pipeline run
+    analysis_info = get_analysis_info(my_api_key,project_id,analysis_id)
+    if 'startDate'  in list(analysis_info.keys()):
+        get_logs(my_api_key,project_id,analysis_id,extra_headers)
+    else:
+        printf("It appears that {analysis_id} failed before it was run")
 
 
- 
 if __name__ == "__main__":
     main()
