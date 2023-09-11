@@ -18,7 +18,7 @@ if(!file.exists(db_file)){
   stop(paste("Please provide a DB file to this script.\nYou provided",db_file,"\n"))
   
 }
-con <- dbConnect(SQLite(), "/Users/KishMish/Downloads/metrics.db")
+con <- dbConnect(SQLite(), db_file)
 
 # Show List of Tables
 as.data.frame(dbListTables(con))
@@ -72,7 +72,8 @@ pods <- dbReadTable(con, 'pods')
 pod_labels_of_interest = c('uwf','nf','cwl')
 pipeline_task_pod = pods[grepl('uwf',pods$name),]$id
 runner_pod = pods[grepl('nf|cwl',pods$name),]$id
-analysis_id = strsplit(gsub("bpe1-","",pods[grepl('monitor',pods$name),]$name),"\\-monitor")[[1]][1]
+analysis_id = strsplit(basename(dirname(db_file)),"\\_")[[1]]
+analysis_id = analysis_id[length(analysis_id)]
 #pods
 
 ### get labels for each container
@@ -86,7 +87,7 @@ runner_container = containers[grepl('nf|cwl',containers$name)& containers$pod_id
 ### nemory and cpu usage
 container_metrics <- dbReadTable(con, 'container_metrics')
 #container_metrics
-
+setwd(dirname(db_file))
 library(ggplot2)
 library(lubridate)
 
@@ -143,3 +144,6 @@ rlog::log_info(paste("Creating PDF for disk usage:",paste0("analysis_",analysis_
 pdf(paste0("analysis_",analysis_id,".disk_usage.pdf"))
 p + ggtitle(paste("analysis_disk_usage")) + xlab("timestamp") + ylab("disk usage %")
 dev.off()
+
+setwd(Sys.getenv('HOME'))
+

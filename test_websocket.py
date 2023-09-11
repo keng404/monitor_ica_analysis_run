@@ -14,6 +14,7 @@ import pprint
 from pprint import pprint
 import json
 import time
+import re
 from time import sleep
 import random
 ###############################################
@@ -127,6 +128,69 @@ def get_project_analysis_id(api_key,project_id,analysis_name):
         print(f"No user reference provided, will poll the logs for the analysis {default_analysis_name}")
         analysis_id = analyses_list[idx_of_interest]['id']
     return analysis_id
+##########################################
+def get_analysis_metadata(api_key,project_id,analysis_id):
+         # List all analyses in a project
+    api_base_url = os.environ['ICA_BASE_URL'] + "/ica/rest"
+    endpoint = f"/api/projects/{project_id}/analyses/{analysis_id}"
+    analysis_metadata = []
+    full_url = api_base_url + endpoint  ############ create header
+    headers = CaseInsensitiveDict()
+    headers['Accept'] = 'application/vnd.illumina.v3+json'
+    headers['Content-Type'] = 'application/vnd.illumina.v3+json'
+    headers['X-API-Key'] = api_key
+    try:
+        projectAnalysis = requests.get(full_url, headers=headers)
+        analysis_metadata = projectAnalysis.json()
+        ##print(pprint(analysis_metadata,indent=4))
+    except:
+        raise ValueError(f"Could not get analyses metadata for project: {project_id}")
+    return analysis_metadata
+
+def find_db_file(api_key,project_id,analysis_metadata,search_query = "metrics.db"):
+    db_file = None
+    ### assume user has not output the results of analysis to custom directory
+    search_query_path = "/" + analysis_metadata['reference'] + "/" + search_query
+    search_query_path_str = [re.sub("/", "%2F", x) for x in search_query_path]
+    search_query = "".join(search_query_path_str)
+    datum = []
+    pageOffset = 0
+    pageSize = 1000
+    page_number = 0
+    number_of_rows_to_skip = 0
+    api_base_url = os.environ['ICA_BASE_URL'] + "/ica/rest"
+    endpoint = f"/api/projects/{project_id}/data?filenameMatchMode=FUZZY&filePath={search_query}&filePathMatchMode=STARTS_WITH_CASE_INSENSITIVE&pageOffset={pageOffset}&pageSize={pageSize}"
+    full_url = api_base_url + endpoint  ############ create header
+    headers = CaseInsensitiveDict()
+    headers['Accept'] = 'application/vnd.illumina.v3+json'
+    headers['Content-Type'] = 'application/vnd.illumina.v3+json'
+    headers['X-API-Key'] = api_key
+    try:
+        #print(full_url)
+        projectDataPagedList = requests.get(full_url, headers=headers)
+        if projectDataPagedList.status_code == 200:
+            if 'totalItemCount' in projectDataPagedList.json().keys():
+                totalRecords = projectDataPagedList.json()['totalItemCount']
+                while page_number * pageSize < totalRecords:
+                    endpoint = f"/api/projects/{project_id}/data?filenameMatchMode=FUZZY&filePath={search_query}&filePathMatchMode=STARTS_WITH_CASE_INSENSITIVE&pageOffset={pageOffset}&pageSize={pageSize}"
+                    full_url = api_base_url + endpoint  ############ create header
+                    projectDataPagedList = requests.get(full_url, headers=headers)
+                    for projectData in projectDataPagedList.json()['items']:
+                        datum.append({"name": projectData['data']['details']['name'], "id": projectData['data']['id'],
+                                    "path": projectData['data']['details']['path']})
+                    page_number += 1
+                    number_of_rows_to_skip = page_number * pageSize
+            else:
+                for projectData in projectDataPagedList.json()['items']:
+                    datum.append({"name": projectData['data']['details']['name'], "id": projectData['data']['id'],
+                                "path": projectData['data']['details']['path']}) 
+        else:
+            raise ValueError(f"Could not get results for project: {project_id} looking for filename: {search_query}")
+    except:
+        raise ValueError(f"Could not get results for project: {project_id} looking for filename: {search_query}")
+    if len(datum) > 0:
+        db_file = datum[0]['id']
+    return db_file
 #####################################################
 def get_analysis_steps(api_key,project_id,analysis_id):
      # List all analyses in a project
@@ -297,8 +361,19 @@ def main():
     if 'startDate'  in list(analysis_info.keys()):
         get_logs(my_api_key,project_id,analysis_id,extra_headers)
     else:
-        printf("It appears that {analysis_id} failed before it was run")
-
+        print(f"It appears that {analysis_id} failed before it was run")
+    ### obtain analysis run metadata so we can check the results
+    analysis_run_metadata = get_analysis_metadata(my_api_key,project_id,analysis_id)
+    db_file_id = find_db_file(api_key = my_api_key,project_id = project_id,analysis_metadata=analysis_run_metadata)
+    if db_file_id is not None:
+        print(f"Found db file: {db_file_id}.\nDownloading\n")
+        download_file(api_key = my_api_key,project_id = project_id,data_id = db_file_id,output_path =f"analysis_id_{analysis_id}/metrics.db")
+        plot_generation_cmd = ["Rscript","ica_pipelines.check_out_workflow_metrics.R","--db-file",f"analysis_id_{analysis_id}/metrics.db"]
+        plot_generation_cmd_str = " ".join(plot_generation_cmd)
+        print(f"Running: {plot_generation_cmd_str}")
+        os.system(plot_generation_cmd_str)
+    else:
+        print(f"It appears that {analysis_id} does not have kubernetes metrics file.\nSkippiing CPU and Memory plot generation")
 
 if __name__ == "__main__":
     main()
