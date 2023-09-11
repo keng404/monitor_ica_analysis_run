@@ -1,16 +1,18 @@
-# monitor ICA analysis run
-## scripts and demo code to monitor and troubleshoot analysis runs in ICA
-####### scripts and demo code to monitor analysis runs in ICA
+# Monitor ICA analysis run
+## This repo contains scripts and demo code to monitor and troubleshoot analysis runs in ICA
+
+## scripts and demo code to monitor analysis runs in ICA
 - test_websocket.py
 - requirements.txt --- contains modules to run ```pip install``` on
-# If analysis run is InProgress --- this script hopes to help stream logs
-# If analysis run is completed (i.e. Succeeded or Failed)--- this script will download the logs
 
-You can use the docker image  ```keng404/monitor_ica_analysis_run:0.0.1``` with all the appropriate scripts and libraries installed
+## If analysis run is InProgress --- this script hopes to help stream logs
+## If analysis run is completed (i.e. Succeeded or Failed)--- this script will download the logs
+
+# You can use the docker image  ```keng404/monitor_ica_analysis_run:0.0.1``` with all the appropriate scripts and libraries installed
 
 [See here for the Docker image](https://hub.docker.com/repository/docker/keng404/monitor_ica_analysis_run/tags?page=1&ordering=last_updated) 
 
-# template command line
+# Template command line
 ```bash
 python3 test_websocket.py --api_key_file {FILE} [--project_name {STR}|--project_id {STR}] [OPTIONAL:--analysis_name {STR} | --analysis_id {STR}]
 ```
@@ -29,15 +31,16 @@ This can be particularly useful for nextflow-based pipelines. An example command
 ```
 - directory where ```step_metadata.txt``` is generated will be created by the python script above
 	
-# limitations
+# Limitations
 - Distinguishes between analysis runs that have the same user_reference
   - picks the most recent analysis with the user_reference name
 
+## Supplementary addition to get CPU, memory, disk usage on ICA for each analysis/pipeline run
 
-## Adding logic to pull back kubernetes logs and metrics files to your ICA pipeline
+### Adding logic to pull back kubernetes logs and metrics files to your ICA analysis run
 See [this file](https://github.com/keng404/monitor_ica_analysis_run/blob/main/adding_cpu_and_memory_montoring_to_ica_pipeline.md) for recommendations
 
-## getting CPU and memory usage in an ICA pipeline run
+### Getting CPU and memory usage in an ICA pipeline run --- follow recommendations above
  ```bash
  Rscript ica_pipelines.check_out_workflow_metrics.R --db-file {db_file}
  ```
