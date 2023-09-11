@@ -47,7 +47,6 @@ workflow.onComplete {
 or
 ```bash
 workflow.onError {
-['cp','-r',"${workflow.launchDir}/.ica/user","${workflow.launchDir}/out"].execu\
-te()
+['cp','-r',"${workflow.launchDir}/.ica/user","${workflow.launchDir}/out"].execute()
 }
 ```
