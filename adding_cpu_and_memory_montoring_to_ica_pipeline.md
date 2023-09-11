@@ -1,3 +1,8 @@
+# Additions to an existing ICA pipeline
+You can add the following workflow logic to pull back kubernetes logs and metrics that can be used to plot usage of CPU/memory/disk usage.
+
+These plots and files can be used to understand if you analysis/pipeline run may have failed due to CPU/memory/disk usage.
+
 # CWL-based pipeline
 1. Find command line tool towards the end of the pipeline
 2. Add dirent
