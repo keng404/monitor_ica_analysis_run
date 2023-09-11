@@ -6,7 +6,9 @@
 # If analysis run is InProgress --- this script hopes to help stream logs
 # If analysis run is completed (i.e. Succeeded or Failed)--- this script will download the logs
 
-You can use the docker image  ```keng404/monitor_ica_analysis_run:0.0.1``` [See here for the Docker image](https://hub.docker.com/repository/docker/keng404/monitor_ica_analysis_run/tags?page=1&ordering=last_updated) with all the appropriate scripts and libraries installed
+You can use the docker image  ```keng404/monitor_ica_analysis_run:0.0.1``` with all the appropriate scripts and libraries installed
+
+[See here for the Docker image](https://hub.docker.com/repository/docker/keng404/monitor_ica_analysis_run/tags?page=1&ordering=last_updated) 
 
 # template command line
 ```bash
