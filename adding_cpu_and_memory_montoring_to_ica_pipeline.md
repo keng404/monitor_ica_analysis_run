@@ -1,8 +1,8 @@
 # CWL-based pipeline
 1. Find command line tool towards the end of the pipeline
 2. Add dirent
-  - start with your command
-  - then add the following:
+   - start with your command
+   - then add the following:
   ```cp -r /mounted-ica-user-dir/* $(runtime.outdir)/```
 3. Add the following under ```requirements``` for your command-line tool:
     - ```class: InlineJavascriptRequirement```
