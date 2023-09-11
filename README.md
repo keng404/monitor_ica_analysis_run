@@ -1,5 +1,5 @@
-# scripts and demo code to monitor analysis runs in ICA
-# Tested with python version >= 3.9
+# monitor ICA analysis run
+## scripts and demo code to monitor and troubleshoot analysis runs in ICA
 ####### scripts and demo code to monitor analysis runs in ICA
 - test_websocket.py
 - requirements.txt --- contains modules to run ```pip install``` on
