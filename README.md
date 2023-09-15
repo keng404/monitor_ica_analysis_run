@@ -1,7 +1,7 @@
 # Monitor ICA analysis run
 ## This repo contains scripts and demo code to monitor and troubleshoot analysis runs in ICA
 
-## scripts and demo code to monitor analysis runs in ICA
+## Scripts and demo code to monitor analysis runs in ICA
 - test_websocket.py
 - requirements.txt --- contains modules to run ```pip install``` on
 
@@ -20,7 +20,7 @@ python3 test_websocket.py --api_key_file {FILE} [--project_name {STR}|--project_
 - ```--project_name``` : name of your ICA project or ```--project_id``` : project id of your ICA project
 - ```--analysis_name``` : user_reference or name of your analysis run or  ```--analysis_id``` : analysis id of the analysis you want to monitor
 
-If both ```--analysis_name``` and ```--analysis_id``` are undefined, the script will try to grab/monitor logs from the most recent analysis run in your ICA project
+If both ```--analysis_name``` and ```--analysis_id``` are undefined, the script will try to grab/monitor logs from the most recent analysis run in your ICA project.
 
 # Rscript extension
 - An additional Rscript is provided to help parse the JSON message returned from the ICA getAnalysisSteps endpoint and provide a table containing steps to monitor a running pipeline.
@@ -29,7 +29,7 @@ This can be particularly useful for nextflow-based pipelines. An example command
 ```bash
  Rscript ica.analysis_table.R --process-steps $PWD/analysis_id_{ANALYSIS_ID}/step_metadata.txt
 ```
-- directory where ```step_metadata.txt``` is generated will be created by the python script above
+- directory where ```step_metadata.txt``` is generated will be created by the python script above.
 	
 # Limitations
 - Distinguishes between analysis runs that have the same user_reference
