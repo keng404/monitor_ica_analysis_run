@@ -1,0 +1,9 @@
+2023-08-19 10:48:38.875121 [NOTICE] [Context.cc:310] Downloading 8 item(s)
+2023-08-19 10:48:38.947511 [NOTICE] [RequestGroup.cc:1213] Download complete: /ces/scheduler/run/13fa3361-dac6-418c-8205-bcbf78883892/data/userNextflow.config
+2023-08-19 10:48:38.979908 [NOTICE] [RequestGroup.cc:1213] Download complete: /ces/scheduler/run/13fa3361-dac6-418c-8205-bcbf78883892/data/my_sample.dragen_germline.fastq_list.csv
+2023-08-19 10:48:38.987547 [NOTICE] [RequestGroup.cc:1213] Download complete: /ces/scheduler/run/13fa3361-dac6-418c-8205-bcbf78883892/data/defaultNextflow.config
+2023-08-19 10:48:38.989118 [NOTICE] [RequestGroup.cc:1213] Download complete: /ces/scheduler/run/13fa3361-dac6-418c-8205-bcbf78883892/data/nextflow.config
+2023-08-19 10:53:37.126491 [NOTICE] [RequestGroup.cc:1213] Download complete: /ces/scheduler/run/13fa3361-dac6-418c-8205-bcbf78883892/data/hg38.tar
+2023-08-19 10:54:46.029162 [NOTICE] [RequestGroup.cc:1213] Download complete: /ces/scheduler/run/13fa3361-dac6-418c-8205-bcbf78883892/data/dragen-vcml-hg38-3.1-0.zip
+2023-08-19 10:57:14.349499 [NOTICE] [RequestGroup.cc:1213] Download complete: /ces/scheduler/run/13fa3361-dac6-418c-8205-bcbf78883892/data/NA12878-PCRF450-1_S1_L001_R1_001.fastq.gz
+2023-08-19 10:57:46.518847 [NOTICE] [RequestGroup.cc:1213] Download complete: /ces/scheduler/run/13fa3361-dac6-418c-8205-bcbf78883892/data/NA12878-PCRF450-1_S1_L001_R2_001.fastq.gz

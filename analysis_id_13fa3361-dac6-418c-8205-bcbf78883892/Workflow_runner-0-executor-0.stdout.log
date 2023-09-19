@@ -1,0 +1,12 @@
+nextflow version 20.10.0.5432
+N E X T F L O W  ~  version 20.10.0
+Launching `main.nf` [confident_brattain] - revision: 1d6c166b79
+WARN: It appears you have never run this project before -- Option `-resume` is ignored
+K8sManager loaded
+[18/308580] Submitted process > DRAGEN_Germline_BIMC (1)
+WARN: K8s pod cannot be scheduled -- 0/100 nodes are available: 1 node(s) had taint {controller: critical}, that the pod didn't tolerate, 2 node(s) had taint {karpenter.illumina.com/group: calicocni}, that the pod didn't tolerate, 4 node(s) had taint {karpenter.illumina.com/group: system}, that the pod didn't tolerate, 5 node(s) didn't match Pod's node affinity/selector, 88 node(s) had taint {karpenter.illumina.com/group: bpe}, that the pod didn't tolerate.
+WARN: K8s pod cannot be scheduled -- 0/100 nodes are available: 1 node(s) had taint {controller: critical}, that the pod didn't tolerate, 2 node(s) had taint {karpenter.illumina.com/group: calicocni}, that the pod didn't tolerate, 4 node(s) had taint {karpenter.illumina.com/group: system}, that the pod didn't tolerate, 5 node(s) didn't match Pod's node affinity/selector, 88 node(s) had taint {karpenter.illumina.com/group: bpe}, that the pod didn't tolerate.
+WARN: K8s pod cannot be scheduled -- 0/99 nodes are available: 1 node(s) had taint {controller: critical}, that the pod didn't tolerate, 2 node(s) had taint {karpenter.illumina.com/group: calicocni}, that the pod didn't tolerate, 4 node(s) had taint {karpenter.illumina.com/group: system}, that the pod didn't tolerate, 5 node(s) didn't match Pod's node affinity/selector, 87 node(s) had taint {karpenter.illumina.com/group: bpe}, that the pod didn't tolerate.
+full_copy
+Returning workflow run-metric reports from ICA
+Waiting files transfer to complete (1 files)

@@ -1,0 +1,1520 @@
+[
+    {
+        "endDate": "2023-08-19T13:17:37Z",
+        "exitCode": 0,
+        "id": "Workflow_post-run-0-executor-2",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 106184,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.4bd9j.log",
+                    "objectETag": "f8198dea7164afd2b3294ea77826dcdd",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/2/stderr.4bd9j.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:18:08Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:18:08Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.0b423d71caa94031b08408db9e27e3f6",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.0b423d71caa94031b08408db9e27e3f6#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/2/stderr.4bd9j.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.4bd9j.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/2/stdout.4bd9j.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:18:08Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:18:08Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.cd24f0c0ff5f489ab08508db9e27e3f6",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.cd24f0c0ff5f489ab08508db9e27e3f6#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/2/stdout.4bd9j.log"
+            }
+        },
+        "name": "finalize_output_data.2",
+        "queueDate": "2023-08-19T13:15:09Z",
+        "startDate": "2023-08-19T13:15:09Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:12:33Z",
+        "exitCode": 0,
+        "id": "DRAGEN_Germline_BIMC_(1)",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 3437,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": ".command.err",
+                    "objectETag": "5520a3a341511f213d84e891fb6ca529",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/work/18/30858037773227bb271ac6d8bb1d44/.command.err",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:15:09Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:15:09Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.f4c2fd9b7eef413d307308db9e65476f",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.f4c2fd9b7eef413d307308db9e65476f#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/work/18/30858037773227bb271ac6d8bb1d44/.command.err"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 83269,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": ".command.out",
+                    "objectETag": "04ac9b8a11ec774d7a8ee9a181b2ddaf",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/work/18/30858037773227bb271ac6d8bb1d44/.command.out",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:15:09Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:15:09Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.2c82b916e2614697306d08db9e65476f",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.2c82b916e2614697306d08db9e65476f#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/work/18/30858037773227bb271ac6d8bb1d44/.command.out"
+            }
+        },
+        "name": "DRAGEN_Germline_BIMC_(1)",
+        "queueDate": "2023-08-19T10:59:00Z",
+        "startDate": "2023-08-19T11:02:57Z",
+        "status": "DONE",
+        "technical": false
+    },
+    {
+        "endDate": "2023-08-19T10:57:47Z",
+        "exitCode": 0,
+        "id": "Workflow_pre-run-0-executor-3",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 317,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.pjnhs.log",
+                    "objectETag": "eb3ce62976a090abb3635e7e8094bf80",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/3/stderr.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:48Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:48Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.2178f1c018454bca9dae08db9e65476e",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.2178f1c018454bca9dae08db9e65476e#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/3/stderr.pjnhs.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.pjnhs.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/3/stdout.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:48Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:48Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.4ba0c2bc4d0946fb9af508db9eb9f0cf",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.4ba0c2bc4d0946fb9af508db9eb9f0cf#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/3/stdout.pjnhs.log"
+            }
+        },
+        "name": "prepare_input_data.3",
+        "queueDate": "2023-08-19T10:57:47Z",
+        "startDate": "2023-08-19T10:57:47Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:18:07Z",
+        "exitCode": 0,
+        "id": "Workflow_post-run-0",
+        "logs": {},
+        "name": "Finalize Output Data",
+        "queueDate": "2023-08-19T13:14:21Z",
+        "startDate": "2023-08-19T13:14:39Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:14:39Z",
+        "exitCode": 0,
+        "id": "Workflow_post-run-0-executor-0",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.4bd9j.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/0/stderr.4bd9j.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:15:09Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:15:09Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.2ab7fcd1135447f1307808db9e65476f",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.2ab7fcd1135447f1307808db9e65476f#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/0/stderr.4bd9j.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 282,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.4bd9j.log",
+                    "objectETag": "cf18f46ccd454d799b9441db89412b91",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/0/stdout.4bd9j.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:15:09Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:15:09Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.324cf7f4ed57412628d508db9eb9f0d0",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.324cf7f4ed57412628d508db9eb9f0d0#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/0/stdout.4bd9j.log"
+            }
+        },
+        "name": "finalize_output_data.0",
+        "queueDate": "2023-08-19T13:14:39Z",
+        "startDate": "2023-08-19T13:14:39Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:18:42Z",
+        "exitCode": 0,
+        "id": "Urn_update-0",
+        "logs": {},
+        "name": "Urn_update-0",
+        "queueDate": "2023-08-19T13:18:40Z",
+        "startDate": "2023-08-19T13:18:40Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T10:57:46Z",
+        "exitCode": 0,
+        "id": "Workflow_pre-run-0-executor-0",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 539,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.pjnhs.log",
+                    "objectETag": "b473291d723fb4f345041b0535db18ed",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/0/stderr.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:49Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:49Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.c36dd009814049409af008db9eb9f0cf",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.c36dd009814049409af008db9eb9f0cf#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/0/stderr.pjnhs.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 1407,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.pjnhs.log",
+                    "objectETag": "e43655e0f985fcd02fc3998871d432b3",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/0/stdout.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:49Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:49Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.290f53aa999b4c989aef08db9eb9f0cf",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.290f53aa999b4c989aef08db9eb9f0cf#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/0/stdout.pjnhs.log"
+            }
+        },
+        "name": "prepare_input_data.0",
+        "queueDate": "2023-08-19T10:48:38Z",
+        "startDate": "2023-08-19T10:48:38Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:14:20Z",
+        "exitCode": 0,
+        "id": "Workflow_runner-0",
+        "logs": {},
+        "name": "Pipeline Runner",
+        "queueDate": "2023-08-19T10:45:49Z",
+        "startDate": "2023-08-19T10:58:45Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:18:07Z",
+        "exitCode": 0,
+        "id": "Workflow_monitor-0",
+        "logs": {},
+        "name": "Workflow_monitor-0",
+        "queueDate": "2023-08-19T10:43:17Z",
+        "startDate": "2023-08-19T10:45:43Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:15:09Z",
+        "exitCode": 0,
+        "id": "Workflow_post-run-0-executor-1",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 38621,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.4bd9j.log",
+                    "objectETag": "5533077eddab71a6a660c8060a04070d",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/1/stderr.4bd9j.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:15:09Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:15:09Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.24456a9b58bc445a307008db9e65476f",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.24456a9b58bc445a307008db9e65476f#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/1/stderr.4bd9j.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.4bd9j.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/1/stdout.4bd9j.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:15:09Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:15:09Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.e95ee8ad36ee4b1e307608db9e65476f",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.e95ee8ad36ee4b1e307608db9e65476f#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/1/stdout.4bd9j.log"
+            }
+        },
+        "name": "finalize_output_data.1",
+        "queueDate": "2023-08-19T13:14:39Z",
+        "startDate": "2023-08-19T13:14:39Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:18:39Z",
+        "exitCode": 0,
+        "id": "Storage_session-0",
+        "logs": {},
+        "name": "Storage_session-0",
+        "queueDate": "2023-08-19T13:18:38Z",
+        "startDate": "2023-08-19T13:18:38Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:18:07Z",
+        "exitCode": 0,
+        "id": "Workflow_post-run-0-executor-3",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 17539,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.4bd9j.log",
+                    "objectETag": "3d095f4549a7295221020f85a86b8dc9",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/3/stderr.4bd9j.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:18:08Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:18:08Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.9c80912600d441bdb08708db9e27e3f6",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.9c80912600d441bdb08708db9e27e3f6#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/3/stderr.4bd9j.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.4bd9j.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/3/stdout.4bd9j.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:18:08Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:18:08Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.a7587b2680d64746b08808db9e27e3f6",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.a7587b2680d64746b08808db9e27e3f6#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-3post/3/stdout.4bd9j.log"
+            }
+        },
+        "name": "finalize_output_data.3",
+        "queueDate": "2023-08-19T13:17:37Z",
+        "startDate": "2023-08-19T13:17:37Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T10:57:46Z",
+        "exitCode": 0,
+        "id": "Workflow_pre-run-0-executor-1",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.pjnhs.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/1/stderr.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:48Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:48Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.5e95431c942f42709af308db9eb9f0cf",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.5e95431c942f42709af308db9eb9f0cf#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/1/stderr.pjnhs.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 225,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.pjnhs.log",
+                    "objectETag": "40b904b8e4b59fd74f804736ff8342cf",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/1/stdout.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:48Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:48Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.a93eaa8bc6504c349dab08db9e65476e",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.a93eaa8bc6504c349dab08db9e65476e#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/1/stdout.pjnhs.log"
+            }
+        },
+        "name": "prepare_input_data.1",
+        "queueDate": "2023-08-19T10:57:46Z",
+        "startDate": "2023-08-19T10:57:46Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T10:57:47Z",
+        "exitCode": 0,
+        "id": "Workflow_pre-run-0-executor-4",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 317,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.pjnhs.log",
+                    "objectETag": "eb3ce62976a090abb3635e7e8094bf80",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/3/stderr.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:48Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:48Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.2178f1c018454bca9dae08db9e65476e",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.2178f1c018454bca9dae08db9e65476e#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/3/stderr.pjnhs.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.pjnhs.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/3/stdout.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:48Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:48Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.4ba0c2bc4d0946fb9af508db9eb9f0cf",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.4ba0c2bc4d0946fb9af508db9eb9f0cf#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/3/stdout.pjnhs.log"
+            }
+        },
+        "name": "prepare_input_data.4",
+        "queueDate": "2023-08-19T10:57:47Z",
+        "startDate": "2023-08-19T10:57:47Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T10:57:47Z",
+        "exitCode": 0,
+        "id": "Workflow_pre-run-0",
+        "logs": {},
+        "name": "Prepare Input Data",
+        "queueDate": "2023-08-19T10:45:49Z",
+        "startDate": "2023-08-19T10:48:38Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T13:14:20Z",
+        "exitCode": 0,
+        "id": "Workflow_runner-0-executor-0",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.p65j4.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-2uwf/0/stderr.p65j4.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:14:21Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:14:21Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.0df732ae9da84fc22f5a08db9e65476f",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.0df732ae9da84fc22f5a08db9e65476f#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-2uwf/0/stderr.p65j4.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 1779,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.p65j4.log",
+                    "objectETag": "9bd014bf7ecf0548a7b607a50c1ea781",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-2uwf/0/stdout.p65j4.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T13:14:21Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T13:14:21Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.98e1bff9b05649c827c108db9eb9f0d0",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.98e1bff9b05649c827c108db9eb9f0d0#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-2uwf/0/stdout.p65j4.log"
+            }
+        },
+        "name": "pipeline_runner.0",
+        "queueDate": "2023-08-19T10:58:45Z",
+        "startDate": "2023-08-19T10:58:45Z",
+        "status": "DONE",
+        "technical": true
+    },
+    {
+        "endDate": "2023-08-19T10:57:47Z",
+        "exitCode": 0,
+        "id": "Workflow_pre-run-0-executor-2",
+        "logs": {
+            "stdErrData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 0,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stderr.pjnhs.log",
+                    "objectETag": "d41d8cd98f00b204e9800998ecf8427e",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/2/stderr.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:48Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:48Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.f44b59b33d9f45349af208db9eb9f0cf",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.f44b59b33d9f45349af208db9eb9f0cf#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/2/stderr.pjnhs.log"
+            },
+            "stdOutData": {
+                "details": {
+                    "creatorId": "f6bcca1a-4fff-310a-9963-d8125df8a5f0",
+                    "dataType": "FILE",
+                    "fileSizeInBytes": 222,
+                    "format": {
+                        "code": "TXT",
+                        "description": "Standard file file",
+                        "id": "eff87e43-50f6-4fb8-8a58-e23a754e4aec",
+                        "mimeType": "text/plain",
+                        "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                        "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                        "tenantName": "Illumina",
+                        "timeCreated": "2021-10-29T09:44:28Z",
+                        "timeModified": "2021-10-29T09:44:28Z"
+                    },
+                    "name": "stdout.pjnhs.log",
+                    "objectETag": "587cefc41fdae698e922a7eea692ce74",
+                    "owningProjectId": "c78835ab-a488-4b97-848d-e606b0f31772",
+                    "owningProjectName": "ken_debug",
+                    "path": "/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/2/stdout.pjnhs.log",
+                    "region": {
+                        "cityName": "North Virginia",
+                        "code": "US",
+                        "country": {
+                            "code": "US",
+                            "id": "99f932f8-bc5b-419c-854c-872a5a00cbae",
+                            "name": "United States",
+                            "ownerId": "499bfe9d-85bd-4588-ba70-fbc2f664bb9e",
+                            "region": "earth",
+                            "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                            "tenantName": "Illumina",
+                            "timeCreated": "2021-10-29T09:44:26Z",
+                            "timeModified": "2021-10-29T09:44:26Z"
+                        },
+                        "id": "c39b1feb-3e94-4440-805e-45e0c76462bf",
+                        "ownerId": "8ec463f6-1acb-341b-b321-043c39d8716a",
+                        "tenantId": "f91bb1a0-c55f-4bce-8014-b2e60c0ec7d3",
+                        "tenantName": "ica-cp-admin",
+                        "timeCreated": "2021-11-05T09:57:38Z",
+                        "timeModified": "2023-01-31T17:52:58Z"
+                    },
+                    "status": "AVAILABLE",
+                    "storedForTheFirstTimeAt": "2023-08-19T10:57:49Z",
+                    "tags": {
+                        "connectorTags": [],
+                        "referenceTags": [],
+                        "runInTags": [],
+                        "runOutTags": [],
+                        "technicalTags": [],
+                        "userTags": []
+                    },
+                    "tenantId": "9fec8354-853b-4ee5-b211-eb03e484d876",
+                    "tenantName": "Illumina",
+                    "timeCreated": "2023-08-19T10:57:49Z",
+                    "timeModified": "2023-08-19T13:18:08Z"
+                },
+                "id": "fil.a2bc7b117ec34ea19db208db9e65476e",
+                "urn": "urn:ilmn:ica:region:c39b1feb-3e94-4440-805e-45e0c76462bf:data:fil.a2bc7b117ec34ea19db208db9e65476e#/analyses/test_CLI_run_v3-DRAGEN_Germline_BIMC_Clone-771c13db-e851-4b93-9cf6-ce15013dcb89-logs/bpe1-13fa3361-dac6-418c-8205-bcbf78883892-1pre/2/stdout.pjnhs.log"
+            }
+        },
+        "name": "prepare_input_data.2",
+        "queueDate": "2023-08-19T10:57:46Z",
+        "startDate": "2023-08-19T10:57:46Z",
+        "status": "DONE",
+        "technical": true
+    }
+]

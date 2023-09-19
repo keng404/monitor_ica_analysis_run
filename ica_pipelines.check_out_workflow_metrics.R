@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 library(DBI)
 library(RSQLite)
 library(rlog)

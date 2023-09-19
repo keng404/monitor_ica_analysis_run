@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 options(stringsAsFactors=FALSE)
 suppressPackageStartupMessages(library("argparse"))
 library(rjson)

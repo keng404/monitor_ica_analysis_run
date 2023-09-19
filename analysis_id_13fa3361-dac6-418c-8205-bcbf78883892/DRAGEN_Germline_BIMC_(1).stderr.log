@@ -1,0 +1,76 @@
++ echo NA12878-PCRF450-1_S1_L001_R1_001.fastq.gz NA12878-PCRF450-1_S1_L001_R2_001.fastq.gz
++ mkdir -p /scratch/reference
++ tar -C /scratch/reference -xf hg38.tar
++ mkdir -p NA12878
++ unzip dragen-vcml-hg38-3.1-0.zip
++ sh dragen-vcml-hg38-3.1-0.run --quiet --target ml/
++ rsync ml/dragen-vcml-hg38-3.1/gerp.bw ml/dragen-vcml-hg38-3.1/homopolymers.bed.gz ml/dragen-vcml-hg38-3.1/info.json ml/dragen-vcml-hg38-3.1/lowmap.bed.gz ml/dragen-vcml-hg38-3.1/mappability.bw ml/dragen-vcml-hg38-3.1/md5sum ml/dragen-vcml-hg38-3.1/meta.json ml/dragen-vcml-hg38-3.1/model.bin ml/dragen-vcml-hg38-3.1/replication.txt ml
++ rm -fr ml/dragen-vcml-hg38-3.1
++ ls -lth ml/gerp.bw ml/homopolymers.bed.gz ml/info.json ml/lowmap.bed.gz ml/mappability.bw ml/md5sum ml/meta.json ml/model.bin ml/replication.txt
++ /opt/edico/bin/dragen_reset
+
+Resetting the DRAGEN Bio-IT processor and stopping all software threads
+Reloading HW board #0
+Reloading HW board #1
+
+
+Reloading DNA image
+
+
+Reloading DNA image
+
+The DRAGEN Bio-IT processor has been reset
++ /opt/edico/bin/dragen --partial-reconfig HMM --ignore-version-check true
++ /opt/edico/bin/dragen --lic-instance-id-location /opt/instance-identity --output-directory ./NA12878 --intermediate-results-dir /scratch --output-file-prefix NA12878 --fastq-list my_sample.dragen_germline.fastq_list.csv --fastq-list-sample-id NA12878 --ref-dir /scratch/reference --enable-map-align true --enable-map-align-output true --enable-duplicate-marking true --enable-sort true --output-format CRAM --enable-bam-indexing true --gc-metrics-enable true --enable-variant-caller true --vc-emit-ref-confidence GVCF --vc-enable-phasing true --vc-enable-vcf-output true --vc-enable-joint-detection true --enable-cnv true --cnv-segmentation-mode SLM --cnv-enable-self-normalization true --cnv-enable-ref-calls false --cnv-interval-width 1000 --cnv-filter-length 0 --enable-gba true --enable-cyp2d6 true --enable-hla false --enable-smn true --enable-sv true --repeat-genotype-enable true --vc-enable-roh true --qc-cross-cont-vcf=/opt/edico/config/sample_cross_contamination_resource_hg38.vcf.gz --vc-ml-dir ml --vc-ml-enable-recalibration true --force
+
+Processing chr1 248956422
+Processing chr2 242193529
+Processing chr3 198295559
+Processing chr4 190214555
+Processing chr5 181538259
+Processing chr6 170805979
+Processing chr7 159345973
+Processing chr8 145138636
+Processing chr9 138394717
+Processing chr10 133797422
+Processing chr11 135086622
+Processing chr12 133275309
+Processing chr13 114364328
+Processing chr14 107043718
+Processing chr15 101991189
+Processing chr16 90338345
+Processing chr17 83257441
+Processing chr18 80373285
+Processing chr19 58617616
+Processing chr20 64444167
+Processing chr21 46709983
+Processing chr22 50818468
+Processing chrX 156040895
+Processing chrY 57227415
+>>Skipping chrM 16569
+Start getDuplicates: Sat Aug 19 11:18:04 2023
+
+Start singletonDup: Sat Aug 19 11:18:04 2023
+
+getDuplicatesInParallel: Sat Aug 19 11:18:04 2023
+
+Done with getDuplicates: Sat Aug 19 11:18:14 2023
+
++ mkdir -p logs
++ cp -rvL /var/log/dragen/dragen_last_good_run.log /var/log/dragen/dragen_run_1692443366715_10236.log logs/
++ rm -f logs/dragen_last_good_run.log
++ rm -rf ml
++ rm dragen-vcml-hg38-3.1-0.run
++ /opt/edico/bin/dragen_reset
+
+Resetting the DRAGEN Bio-IT processor and stopping all software threads
+Reloading HW board #0
+Reloading HW board #1
+
+
+Reloading HMM image
+
+
+Reloading DNA image
+
+The DRAGEN Bio-IT processor has been reset

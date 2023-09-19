@@ -150,16 +150,16 @@ def get_analysis_metadata(api_key,project_id,analysis_id):
 def find_db_file(api_key,project_id,analysis_metadata,search_query = "metrics.db"):
     db_file = None
     ### assume user has not output the results of analysis to custom directory
-    search_query_path = "/" + analysis_metadata['reference'] + "/" + search_query
+    search_query_path = "/" + analysis_metadata['reference'] + "/" 
     search_query_path_str = [re.sub("/", "%2F", x) for x in search_query_path]
-    search_query = "".join(search_query_path_str)
+    search_query_path = "".join(search_query_path_str)
     datum = []
     pageOffset = 0
     pageSize = 1000
     page_number = 0
     number_of_rows_to_skip = 0
     api_base_url = os.environ['ICA_BASE_URL'] + "/ica/rest"
-    endpoint = f"/api/projects/{project_id}/data?filenameMatchMode=FUZZY&filePath={search_query}&filePathMatchMode=STARTS_WITH_CASE_INSENSITIVE&pageOffset={pageOffset}&pageSize={pageSize}"
+    endpoint = f"/api/projects/{project_id}/data?filename={search_query}&filenameMatchMode=FUZZY&pageOffset={pageOffset}&pageSize={pageSize}"
     full_url = api_base_url + endpoint  ############ create header
     headers = CaseInsensitiveDict()
     headers['Accept'] = 'application/vnd.illumina.v3+json'
@@ -172,23 +172,28 @@ def find_db_file(api_key,project_id,analysis_metadata,search_query = "metrics.db
             if 'totalItemCount' in projectDataPagedList.json().keys():
                 totalRecords = projectDataPagedList.json()['totalItemCount']
                 while page_number * pageSize < totalRecords:
-                    endpoint = f"/api/projects/{project_id}/data?filenameMatchMode=FUZZY&filePath={search_query}&filePathMatchMode=STARTS_WITH_CASE_INSENSITIVE&pageOffset={pageOffset}&pageSize={pageSize}"
+                    endpoint = f"/api/projects/{project_id}/data?filename={search_query}&filenameMatchMode=FUZZY&pageOffset={pageOffset}&pageSize={pageSize}"
                     full_url = api_base_url + endpoint  ############ create header
                     projectDataPagedList = requests.get(full_url, headers=headers)
                     for projectData in projectDataPagedList.json()['items']:
-                        datum.append({"name": projectData['data']['details']['name'], "id": projectData['data']['id'],
+                        if re.search(analysis_metadata['reference'],projectData['data']['details']['path']) is not None:
+                            datum.append({"name": projectData['data']['details']['name'], "id": projectData['data']['id'],
                                     "path": projectData['data']['details']['path']})
                     page_number += 1
                     number_of_rows_to_skip = page_number * pageSize
             else:
                 for projectData in projectDataPagedList.json()['items']:
-                    datum.append({"name": projectData['data']['details']['name'], "id": projectData['data']['id'],
+                    if re.search(analysis_metadata['reference'],projectData['data']['details']['path']) is not None:
+                        datum.append({"name": projectData['data']['details']['name'], "id": projectData['data']['id'],
                                 "path": projectData['data']['details']['path']}) 
         else:
-            raise ValueError(f"Could not get results for project: {project_id} looking for filename: {search_query}")
+            print(f"Could not get results for project: {project_id} looking for filename: {search_query}")
     except:
-        raise ValueError(f"Could not get results for project: {project_id} looking for filename: {search_query}")
+        print(f"Could not get results for project: {project_id} looking for filename: {search_query}")
     if len(datum) > 0:
+        if len(datum) > 1:
+            print(f"Found more than 1 matching DB file for project: {project_id}")
+            pprint(datum,indent = 4)
         db_file = datum[0]['id']
     return db_file
 #####################################################
