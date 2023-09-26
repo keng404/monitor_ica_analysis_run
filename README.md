@@ -7,6 +7,13 @@
 
 ## If analysis run is InProgress --- this script hopes to help stream logs
 ## If analysis run is completed (i.e. Succeeded or Failed)--- this script will download the logs
+These logs will contain:
+- the stderr/stdout of ICA as it stages the analysis run before it runs it
+- the stderr/stdout collected at each step during an analysis run
+- the stderr/stdout of CWL/Nextflow as it orchestrates the analysis run
+- the stderr/stdout of ICA as it brings the result back to your ICA project
+
+More details about the logs that ICA collects during an analysis run can be found [here](https://help.ica.illumina.com/project/p-flow/f-analyses#logs)
 
 # You can use the docker image  ```keng404/monitor_ica_analysis_run:0.0.1``` with all the appropriate scripts and libraries installed
 
