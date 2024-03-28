@@ -263,16 +263,13 @@ def download_file(api_key,project_id,data_id,output_path):
 ##################
  
 async def stream_log(uri,extra_headers):
-    checks = 0
     async with websockets.connect(uri,extra_headers=extra_headers) as ws:
-        while True and checks <= num_checks:
-            checks += 1
-            try:
-                text = await ws.recv()
-                print(f"< {text.rstrip()}")
-            except (exceptions.ConnectionClosedError,exceptions.ConnectionClosed):
-                print(f"Connection closed")
-                return
+        try:
+            text = await ws.recv()
+            print(f"< {text.rstrip()}")
+        except (exceptions.ConnectionClosedError,exceptions.ConnectionClosed):
+            print(f"Connection closed")
+            return
 #################################################
 def generate_step_file(step_object,output_path):
     f = open(output_path, "w")
