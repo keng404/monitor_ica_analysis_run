@@ -40,10 +40,12 @@ memory_numerical_conversion <- function(memory_metrics){
     for(i in 1:length(names(memory_conversion_list))){
       label_to_prune = names(memory_conversion_list)[i]
       modified_value = gsub(label_to_prune,"",memory_metrics[j])
+      #rlog::log_info(paste("MODIFIED_VALUE:",modified_value))
       if(modified_value != memory_metrics[j]){
         # return memory metrics in Gbytes
         memory_metrics_updated[j] = (as.numeric(modified_value) * memory_conversion_list[[label_to_prune]])/1e9
-        break
+      } else{
+        memory_metrics_updated[j] = (as.numeric(modified_value)/1e9)
       }
     }
   }
@@ -60,7 +62,8 @@ cpu_numerical_conversion <- function(cpu_metrics){
       modified_value = gsub(label_to_prune,"",cpu_metrics[j])
       if(modified_value != cpu_metrics[j]){
         cpu_metrics_updated[j] = as.numeric(modified_value)/cpu_conversion_list[[label_to_prune]]
-        break
+      } else{
+        cpu_metrics_updated[j] = as.numeric(modified_value)/1e3
       }
     }
   }
@@ -71,8 +74,8 @@ cpu_numerical_conversion <- function(cpu_metrics){
 ### associate analysis pod to container
 pods <- dbReadTable(con, 'pods')
 pod_labels_of_interest = c('uwf','nf','cwl')
-pipeline_task_pod = pods[grepl('uwf',pods$name),]$id
-runner_pod = pods[grepl('nf|cwl',pods$name),]$id
+pipeline_task_pod = pods[grepl('nf|cwl',pods$name),]$id 
+runner_pod =  pods[grepl('2uwf',pods$name),]$id
 analysis_id = strsplit(basename(dirname(db_file)),"\\_")[[1]]
 analysis_id = analysis_id[length(analysis_id)]
 #pods
@@ -80,58 +83,73 @@ analysis_id = analysis_id[length(analysis_id)]
 ### get labels for each container
 containers <- dbReadTable(con, 'containers')
 container_labels = c('task','nf','cwl')
-pipeline_task_container = containers[grepl('task',containers$name) & containers$pod_id == pipeline_task_pod,]$id
-runner_container = containers[grepl('nf|cwl',containers$name)& containers$pod_id == runner_pod,]$id
+pipeline_task_container = containers[containers$pod_id %in% pipeline_task_pod,]$id
+pipeline_task_names = pods[pods$id %in% pipeline_task_pod,]$task
+runner_container = containers[containers$pod_id %in% runner_pod,]$id
+pipeline_runner_names = pods[pods$id %in% runner_pod,]$name
 #containers
 
 # Get table
 ### nemory and cpu usage
 container_metrics <- dbReadTable(con, 'container_metrics')
+## if pipeline step is short-running, we may loose resolution on CPU/memory usate
+pipeline_task_container = pipeline_task_container[pipeline_task_container %in% unique(container_metrics$container_id)]
+pipeline_task_names = pipeline_task_names[pipeline_task_container %in% unique(container_metrics$container_id)]
+runner_container = runner_container[runner_container %in% unique(container_metrics$container_id)]
+pipeline_runner_names = pipeline_runner_names[runner_container %in% unique(container_metrics$container_id)]
 #container_metrics
 setwd(dirname(db_file))
 library(ggplot2)
 library(lubridate)
 
-time_x = lubridate::ymd_hms(container_metrics[container_metrics$container_id == pipeline_task_container,]$timestamp)
-measurement_y = memory_numerical_conversion(container_metrics[container_metrics$container_id == pipeline_task_container,]$mem_usage) 
-p <- ggplot() + aes(x=time_x,y=as.numeric(measurement_y))  + geom_line(linetype = "dashed") + geom_point()
+for( i in 1:length(pipeline_task_container)){
+  time_x = lubridate::ymd_hms(container_metrics[container_metrics$container_id %in% pipeline_task_container[i],]$timestamp)
+  measurement_y = memory_numerical_conversion(container_metrics[container_metrics$container_id %in% pipeline_task_container[i],]$mem_usage) 
+  p <- ggplot() + aes(x=time_x,y=as.numeric(measurement_y))  + geom_line(linetype = "dashed") + geom_point()
+  p <- p + ggtitle(paste("Memory consumption of pipeline")) + xlab("timestamp") + ylab("Memory consumption in Gb")
+  rlog::log_info(paste("Creating PDF for task memory usage:",paste0("analysis_",analysis_id,".",pipeline_task_names[i],".task.memory_consumption.pdf")))
+  
+  pdf(paste0("analysis_",analysis_id,".",pipeline_task_names[i],".task.memory_consumption.pdf"))
+  print(p)
+  dev.off()
+}
 
-rlog::log_info(paste("Creating PDF for task memory usage:",paste0("analysis_",analysis_id,".task.memory_consumption.pdf")))
-
-pdf(paste0("analysis_",analysis_id,".task.memory_consumption.pdf"))
-p + ggtitle(paste("Memory consumption of pipeline")) + xlab("timestamp") + ylab("Memory consumption in Gb")
-dev.off()
-
-time_x = lubridate::ymd_hms(container_metrics[container_metrics$container_id == runner_container,]$timestamp)
-measurement_y = memory_numerical_conversion(container_metrics[container_metrics$container_id == runner_container,]$mem_usage) 
-p <- ggplot() + aes(x=time_x,y=as.numeric(measurement_y))  + geom_line(linetype = "dashed") + geom_point()
-
-rlog::log_info(paste("Creating PDF for pipeline memory usage:",paste0("analysis_",analysis_id,".workflow_runner.memory_consumption.pdf")))
-
-pdf(paste0("analysis_",analysis_id,".workflow_runner.memory_consumption.pdf"))
-p + ggtitle(paste("Memory consumption of runner")) + xlab("timestamp") + ylab("Memory consumption in Gb")
-dev.off()
-
+for( i in 1:length(runner_container)){
+  time_x = lubridate::ymd_hms(container_metrics[container_metrics$container_id %in% runner_container[i],]$timestamp)
+  measurement_y = memory_numerical_conversion(container_metrics[container_metrics$container_id %in%  runner_container[i],]$mem_usage) 
+  p <- ggplot() + aes(x=time_x,y=as.numeric(measurement_y))  + geom_line(linetype = "dashed") + geom_point()
+  p <- p + ggtitle(paste("Memory consumption of runner")) + xlab("timestamp") + ylab("Memory consumption in Gb")
+  rlog::log_info(paste("Creating PDF for pipeline memory usage:",paste0("analysis_",analysis_id,".",pipeline_runner_names[i],".workflow_runner.memory_consumption.pdf")))
+  
+  pdf(paste0("analysis_",analysis_id,".",pipeline_runner_names[i],".workflow_runner.memory_consumption.pdf"))
+  print(p)
+  dev.off()
+}
 #cpu_numerical_conversion(container_metrics[container_metrics$container_id == 4,]$cpu_usage)
+for( i in 1:length(pipeline_task_container)){
+  time_x = lubridate::ymd_hms(container_metrics[container_metrics$container_id %in%  pipeline_task_container[i],]$timestamp)
+  measurement_y = cpu_numerical_conversion(container_metrics[container_metrics$container_id %in%  pipeline_task_container[i],]$cpu_usage) 
+  p <- ggplot() + aes(x=time_x,y=as.numeric(measurement_y))  + geom_line(linetype = "dashed") + geom_point()
+  p <- p + ggtitle(paste("CPU consumption of pipeline")) + xlab("timestamp") + ylab("CPU usage")
+  rlog::log_info(paste("Creating PDF for task cpu usage:",paste0("analysis_",analysis_id,".",pipeline_task_names[i],".task.cpu_consumption.pdf")))
+  
+  pdf(paste0("analysis_",analysis_id,".",pipeline_task_names[i],".task.cpu_consumption.pdf"))
+  print(p)
+  dev.off()
+}
 
-time_x = lubridate::ymd_hms(container_metrics[container_metrics$container_id == pipeline_task_container,]$timestamp)
-measurement_y = cpu_numerical_conversion(container_metrics[container_metrics$container_id == pipeline_task_container,]$cpu_usage) 
-p <- ggplot() + aes(x=time_x,y=as.numeric(measurement_y))  + geom_line(linetype = "dashed") + geom_point()
 
-rlog::log_info(paste("Creating PDF for task cpu usage:",paste0("analysis_",analysis_id,".task.cpu_consumption.pdf")))
+for( i in 1:length(runner_container)){
 
-pdf(paste0("analysis_",analysis_id,".task.cpu_consumption.pdf"))
-p + ggtitle(paste("CPU consumption of pipeline")) + xlab("timestamp") + ylab("CPU usage")
-dev.off()
-
-time_x = lubridate::ymd_hms(container_metrics[container_metrics$container_id == runner_container,]$timestamp)
-measurement_y = cpu_numerical_conversion(container_metrics[container_metrics$container_id == runner_container,]$cpu_usage) 
-p <- ggplot() + aes(x=time_x,y=as.numeric(measurement_y))  + geom_line(linetype = "dashed") + geom_point()
-
-rlog::log_info(paste("Creating PDF for workflow cpu usage:",paste0("analysis_",analysis_id,".workflow_runner.cpu_consumption.pdf")))
-pdf(paste0("analysis_",analysis_id,".workflow_runner.cpu_consumption.pdf"))
-p + ggtitle(paste("CPU consumption of runner")) + xlab("timestamp") + ylab("CPU usage")
-dev.off()
+  time_x = lubridate::ymd_hms(container_metrics[container_metrics$container_id %in%  runner_container[i],]$timestamp)
+  measurement_y = cpu_numerical_conversion(container_metrics[container_metrics$container_id %in%  runner_container[i],]$cpu_usage) 
+  p <- ggplot() + aes(x=time_x,y=as.numeric(measurement_y))  + geom_line(linetype = "dashed") + geom_point()
+  p <- p + ggtitle(paste("CPU consumption of runner")) + xlab("timestamp") + ylab("CPU usage")
+  rlog::log_info(paste("Creating PDF for workflow cpu usage:",paste0("analysis_",analysis_id,".",pipeline_runner_names[i],".workflow_runner.cpu_consumption.pdf")))
+  pdf(paste0("analysis_",analysis_id,".",pipeline_runner_names[i],".workflow_runner.cpu_consumption.pdf"))
+  print(p)
+  dev.off()
+}
 
 ### initial disk size configuration
 file_systems <- dbReadTable(con, 'file_systems')
