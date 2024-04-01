@@ -15,7 +15,7 @@ These logs will contain:
 
 More details about the logs that ICA collects during an analysis run can be found [here](https://help.ica.illumina.com/project/p-flow/f-analyses#logs)
 
-# You can use the docker image  ```keng404/monitor_ica_analysis_run:0.0.1``` with all the appropriate scripts and libraries installed
+# You can use the docker image  ```keng404/monitor_ica_analysis_run:0.0.2``` with all the appropriate scripts and libraries installed
 
 [See here for the Docker image](https://hub.docker.com/repository/docker/keng404/monitor_ica_analysis_run/tags?page=1&ordering=last_updated) 
 
