@@ -41,8 +41,7 @@ This can be particularly useful for nextflow-based pipelines. An example command
 # Limitations
 - Distinguishes between analysis runs that have the same user_reference
   - picks the most recent analysis with the user_reference name
-- ICA CLI limitation launching an ICA pipeline where you have a null (i.e. not specified) multi-value parameter. You won't be able to configure this in the CLI.
-  - **This is possible** when launching via the API (default settings).
+
 
 ## Supplementary addition to get CPU, memory, disk usage on ICA for each analysis/pipeline run
 
